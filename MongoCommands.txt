@@ -1,0 +1,47 @@
+# Create db
+use sparta
+
+# Create Colletion
+db.createCollection('academy')
+
+# Insert document
+db.academy.insertOne({name: 'new document'})
+
+# Insert many documents
+db.academy.insertMany([{"course":"Data Engineering", "length": 10},{"course":"Data Analysis", "length": 8}])
+
+# Insert dc about yourself
+db.academy.insertOne([{'name': 'Kyle Godwin', 'Age': '26', 'Height': '180cm', 'Hair colour': 'Brown'}])
+
+# Ways to establish document relastionships
+
+# Embedded Document (for de-normalised data) (1 to Many or 1 to 1)
+db.academy.insertOne({name: 'David', course:'Data Engineering', trainer: {name: 'Luke', Expertise: 'Data'}})
+
+# Refrencing (for normalised data) (Many to many)
+
+# Possible to set validation rules in the collections
+- name
+- 'bsonType' int
+- description 'must be an integer'
+
+# Check collection info and validations
+db.getCollectionInfos({name: 'students'})
+
+# Show all collections 
+show collections
+
+# Get documents inside collection
+db.students.find({})
+
+# Mongo shell treats all numbers as floating-point double by default. To enter a Long or Int number, wrap it in NumberLong() or NumberInt().
+e.g. number: NumberInt(100)
+
+# Update document
+db.favouriteFilms.updateOne({movie: 'Norbit'}, {$set: {release_date: '2002'}})
+
+# Delete Document
+db.favouriteFilms.deleteOne({movie: 'Elf'})
+
+# Delete many Document
+db.favouriteFilms.deleteMany({movie: 'Elf'})
