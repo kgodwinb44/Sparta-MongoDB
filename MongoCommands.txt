@@ -45,3 +45,65 @@ db.favouriteFilms.deleteOne({movie: 'Elf'})
 
 # Delete many Document
 db.favouriteFilms.deleteMany({movie: 'Elf'})
+
+# Find specific item
+db.characters.find({name: 'chewbacca'}, {name: 1, eye_color: 1})
+
+# Find item in embedded docuemnt
+db.characters.find({name: 'chewbacca'}, {'species.name': 1})
+
+# Filter by eye colour
+db.characters.find({eye_color: {$in: ['yellow', 'orange']	}	}, {name: 1}	)
+
+# Find male and female with blue and yellow eyes
+# The outer $or checks for either condition.
+# Each $and inside ensures that both conditions are met for that gender.
+db.characters.find({$or: [{ $and: [ { gender: 'female' }, { eye_color: 'blue' } ] },{ $and: [ { gender: 'male' }, { eye_color: 'yellow' } ] }]})
+
+# CTRL L
+Clear screen
+
+# Unset the height of unknowns and change from string to int
+db.characters.updateMany(
+  {height: "unknown"},
+  {$unset: {height: ""}}
+)
+db.characters.updateMany(
+  {},
+  [{$set: {height: {$toInt: "$height"}}}]
+)
+
+# Change mass to double
+Change mass to double
+ 
+db.characters.update(
+  {mass: "1,358"},
+  {$set: {mass: "1358"}}
+)
+ 
+db.characters.update(
+  {mass: "unknown"},
+  {$unset: {mass: ""}},
+  {multi: true}
+)
+ 
+db.characters.update(
+  {mass: {$exists: true}},
+  [{$set: {mass: {$toDouble: "$mass"}}}],
+  {multi: true}
+)
+
+# Filter by species average mass which is not null
+db.characters.aggregate([
+  { $match: { mass: { $ne: null } } },
+  {
+    $group: {
+      _id: "$species.name",
+      averageMass: { $avg: "$mass" },
+      count: { $sum: 1 }
+    }
+  },
+  {
+    $sort: { averageMass: 1 }
+  }
+]).toArray()
