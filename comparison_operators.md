@@ -40,3 +40,5 @@ db.collection.find({ status: { $ne: "D" } })
 ```
 db.collection.find({ status: { $nin: ["A", "B"] } })
 ```
+
+![](images/final.PNG)
