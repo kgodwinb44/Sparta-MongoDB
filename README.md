@@ -3,6 +3,10 @@
 - It stores data in BSON (Binary JSON)
 - It Offers high performance, horizontal scalability, and schema flexibility
 
+## Nosql Over SQL
+- Allows you to work with different data structures within a database
+- Your data does not need to be as organised 
+
 --- 
 
 ## Collections and Documents
