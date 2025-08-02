@@ -4,7 +4,7 @@
 - Column-Family Stores (data stored in rows and columns, but with flexible schemas)
 - Graph Databases (designed for handling data with complex relationships)
 
-![](images/nosql_types.PNG)
+![](/images/nosql_types.PNG)
 
 ---
 
@@ -40,7 +40,7 @@
 
 # Normalisation vs De-normalisation
 
-![](images/norm_denorm.PNG)
+![](/images/norm_denorm.PNG)
 
 ## Normalisation
 - Reduces Redundancy (unnecessary data)
@@ -59,7 +59,7 @@
 
 # NoSQL vs SQL
 
-![](images/nosql_sql.PNG)
+![](/images/nosql_sql.PNG)
 
 ## NoSQL - Reasons
 - Flexible schema (no model required)
@@ -85,7 +85,7 @@
 - Very agile, easily adaptable and changeable
 - Focuses on the relations between the data
 
-![](images/graph_db.PNG)
+![](/images/graph_db.PNG)
 
 ---
 
