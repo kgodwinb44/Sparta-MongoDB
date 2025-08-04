@@ -21,7 +21,7 @@
 - drop()
 - distinct("name")
 - aggregate([{match: }, {group: }, {sort: }])
-- ```
+```
 
 ---
 
