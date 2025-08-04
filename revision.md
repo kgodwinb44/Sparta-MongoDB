@@ -40,7 +40,7 @@
 
 # Normalisation vs De-normalisation
 
-![](/images/norm_denorm.PNG)
+![](images/norm_denorm.PNG)
 
 ## Normalisation
 - Reduces Redundancy (unnecessary data)
@@ -59,7 +59,7 @@
 
 # NoSQL vs SQL
 
-![](/images/nosql_sql.PNG)
+![](images/nosql_sql.PNG)
 
 ## NoSQL - Reasons
 - Flexible schema (no model required)
@@ -85,7 +85,7 @@
 - Very agile, easily adaptable and changeable
 - Focuses on the relations between the data
 
-![](/images/graph_db.PNG)
+![](images/graph_db.PNG)
 
 ---
 
@@ -95,3 +95,45 @@
 - Embedding is faster due to data stored inside the document (less query operations)
 
 ---
+
+# Mongo Architecture
+- Database (holds collections)
+- Collections (holds documents)
+- Documents (JSON like records)
+- MongoDB Server (A mongod process running the database engine)
+- Clients (Applications or users interacting with the DB or Mongo Shell)
+---
+
+# Replica Sets
+- A group of MongoDB servers that maintain the same data
+- One primary
+- One or more Secondary nodes
+- Writes and read go to the primary
+- Secondary replicate the primary
+- If primary fails, a secondary is chosen to be the new primary
+
+---
+
+# Sharding
+- Sharding is used to distribute data across multiple servers (shards)
+- A shard is a piece of your overall data
+- Splits the data across multiple shards
+- Horizontal scaling
+- Proving a split or resources across multiple shards
+
+---
+
+# Aggregate
+- Used to process data and return computer results
+- Consists of a series of stages
+- Each stage transforms the data and passes it to the next stage
+```
+$match - Filters documents (similar to find())
+$group - Group documents and apply aggregation (e.g. sum, avg)
+---
+$project - Include/ exclude reshape fields
+$sort
+$limit
+$lookup - Perform left outer join
+$unwind - Deconstruct array
+```
